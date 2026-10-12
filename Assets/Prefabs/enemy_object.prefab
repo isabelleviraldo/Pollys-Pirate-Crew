@@ -63,7 +63,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.16886489, y: -0.30753118, z: 0.051911246}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.75, y: 0.75, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4928574247444492532}
@@ -109,12 +109,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 30
-  engagementRange: 0.5
   passingDamagePerSecond: 2
   passingDamageRange: 0.7
   passingDamageVerticalRange: 1
   entryTravelTime: 1
   entryArcHeight: 1.5
+  damagePerSecondToCrew: 3
+  goldReward: 100
 --- !u!114 &7714488300302189690
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -147,6 +148,7 @@ MonoBehaviour:
   rightLimit: 7
   startMovingRight: 1
   movementEnabled: 1
+  animationEnabled: 1
   walkFrames:
   - frameObject: {fileID: 2544610436631602678}
   - frameObject: {fileID: 1271521579155547057}

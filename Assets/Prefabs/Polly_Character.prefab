@@ -1047,7 +1047,7 @@ MonoBehaviour:
   - {fileID: 6196381950017671306}
   - {fileID: 8174132963801950069}
   repairFrameTime: 0.5
-  repairSpeedMultiplier: 1
+  repairSpeedMultiplier: 0.75
   characterBodyCollider: {fileID: 7802559765833165466}
   repairSortingLayer: boat_damage
   repairSortingOrder: 100
@@ -1064,7 +1064,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
-  damagePerSecond: 5
+  damagePerSecond: 7
   movementSpeed: 3
   combatStandDistance: 2
   combatFrames:
