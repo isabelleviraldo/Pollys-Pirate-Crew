@@ -307,6 +307,11 @@ public class EnemyController : MonoBehaviour
             rb.bodyType =
                 RigidbodyType2D.Kinematic;
         }
+
+        if (GameAudioManager.Instance != null)
+        {
+            GameAudioManager.Instance.PlayCombatStart();
+        }
     }
 
     public void ReceiveDamage(
@@ -344,9 +349,9 @@ public class EnemyController : MonoBehaviour
     
         state = EnemyState.Dead;
     
-        if (GoldManager.Instance != null)
+        if (GameFlowManager.Instance != null)
         {
-            GoldManager.Instance.AddGold(
+            GameFlowManager.Instance.AddGold(
                 goldReward
             );
         }

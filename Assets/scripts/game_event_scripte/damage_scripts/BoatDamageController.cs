@@ -206,6 +206,13 @@ public class BoatDamageController : MonoBehaviour
             spawnPoint.position,
             Quaternion.identity
         );
+
+        if (GameAudioManager.Instance != null)
+        {
+            GameAudioManager.Instance.PlayCannonballFlight(
+                cannonball.transform.position
+            );
+        }
     
         Vector3 startPosition =
             cannonball.transform.position;
@@ -285,10 +292,16 @@ public class BoatDamageController : MonoBehaviour
         }
     
         Destroy(cannonball);
-    
-        // Only actual damage points reveal damage.
+        
         if (target.damageIndex >= 0)
         {
+            if (GameAudioManager.Instance != null)
+            {
+                GameAudioManager.Instance.PlayCannonballHit(
+                    targetPosition
+                );
+            }
+        
             ShowDamage(target.damageIndex);
         }
     }

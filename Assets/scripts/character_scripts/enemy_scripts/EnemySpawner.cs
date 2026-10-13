@@ -28,9 +28,39 @@ public class EnemySpawner : MonoBehaviour
     public float ledgeResetDistance = 1f;
 
     private int enemiesSpawned;
+    public int EnemiesSpawned
+    {
+        get { return enemiesSpawned; }
+    }
+
+    public int EnemiesRequired
+    {
+        get { return maxEnemiesPerGame; }
+    }
+
+    public bool SpawningFinished
+    {
+        get
+        {
+            return enemiesSpawned >= maxEnemiesPerGame;
+        }
+    }
 
     void Start()
     {
+        enemiesSpawned = 0;
+
+        if (GameFlowManager.Instance != null)
+        {
+            maxEnemiesPerGame =
+                GameFlowManager.Instance.enemiesThisLevel;
+        }
+
+        Debug.Log(
+            "Spawner started. Enemies required: " +
+            maxEnemiesPerGame
+        );
+
         StartCoroutine(SpawnLoop());
     }
 
@@ -137,8 +167,10 @@ public class EnemySpawner : MonoBehaviour
         enemiesSpawned++;
 
         Debug.Log(
-            "Enemy spawned from " +
-            (spawnFromLeft ? "left." : "right.")
+            "Enemy spawned: " +
+            enemiesSpawned +
+            " / " +
+            maxEnemiesPerGame
         );
     }
 }
